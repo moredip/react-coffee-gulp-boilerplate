@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    react = require('gulp-react'),
     del = require('del'),
     path = require('path'),
     source = require('vinyl-source-stream'),
