@@ -65,19 +65,11 @@ createBrowserifyTask('browserify','./src/app.coffee');
 
 gulp.task('build',['copy','browserify']);
 
-//gulp.task('watch', ['default'], function(){
-  //var watchOpts = {debounceDelay:2000}, // workaround for editors saving file twice: http://stackoverflow.com/questions/21608480/gulp-js-watch-task-runs-twice-when-saving-files
-      //watchTargets = {
-    //'./js/**/*': ['unit-test','browserify','build-feature-test-harness'],
-    //'./tests/unit/**/*': ['unit-test'],
-    //'./scss/*.scss': ['sass'],
-    //'./index.html': ['copy']
-  //};
-  
-  //_.each(watchTargets, function(tasks,glob){
-    //gulp.watch( glob, watchOpts, tasks );
-  //});
-//});
+gulp.task('watch', ['default'], function(){
+  var watchOpts = {debounceDelay:2000}; // workaround for editors saving file twice: http://stackoverflow.com/questions/21608480/gulp-js-watch-task-runs-twice-when-saving-files
+
+  gulp.watch( './src/**/*', watchOpts, ['build'] );
+});
 
 
 gulp.task('default', ['clean','build']);
